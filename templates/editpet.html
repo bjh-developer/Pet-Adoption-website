@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Pet</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="navbar">
+                <a href="/home" class="logoimage"><img src='../static/assets/pet.png' width="38" height="38"></a>
+                <a href="/home">Loving Paws</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Pets For Adoption 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/dogs">Dogs</a>
+                        <a href="/cats">Cats</a>
+                    </div>
+                </div> 
+                <a href="/login">Your Profile</a>
+                <a href="/aboutus">About Us</a>
+            </div>
+            <hr>
+        </header>
+
+        <div class="aboutus-page">
+            <h1 style="font-size: 40px;">Edit Pet</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% for id in idList_edit %}
+                    <p>Name: <input name='name' value="{{nameList_edit[idList_edit.index(id)]}}"></p>
+                    <p>Gender: <input name='gender' value="{{genderList_edit[idList_edit.index(id)]}}"></p>
+                    <p>Age: <input name='age' value="{{ageList_edit[idList_edit.index(id)]}}"></p>
+                    <p>Fee: <input name='fee' value="{{feeList_edit[idList_edit.index(id)]}}"></p>
+                    <p>Write Up: <input name='writeup' value="{{writeUpList_edit[idList_edit.index(id)]}}"></p>
+                    <p>Type (Dog / Cat): <input name='type' value="{{typeList_edit[idList_edit.index(id)]}}"></p>
+                    <p>1st Image:<input type="file" name="image1" value="{{photoList_edit[idList_edit.index(id)]}}"></p>
+                    <p>2nd Image (optional):<input type="file" name="image2"></p>
+                    <p>3rd Image (optional):<input type="file" name="image3"></p>
+                    {% endfor %}
+                <p><input type='submit'></p>
+            </form>
+        </div>
+        
+    </body>
+</html>
